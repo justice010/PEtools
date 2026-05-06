@@ -1,7 +1,7 @@
 // Global.h
 #ifndef Global_H
 #define Global_H
-#include <Windows.h>
+#include <windows.h>
 
 //º¯ÊýÉùÃ÷								
 //**************************************************************************								

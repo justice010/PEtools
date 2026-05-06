@@ -5,7 +5,7 @@
 
 int main()
 {
-	//TestPrintPEHeader("E:\\逆向\\fg.exe"); //测试成功2024/5/25(2024/5/31 20:18修改：释放申请的内存之后，使得该内存指针置空)
+	TestPrintPEHeader("E:\\逆向\\geek1.exe"); //测试成功2024/5/25(2024/5/31 20:18修改：释放申请的内存之后，使得该内存指针置空)
 
 	//TestPELoader(); //2024/5/31 20:43 优化内存回收
 
@@ -35,6 +35,7 @@ int main()
 
 	//TestPrintBoundImportTable(); //未测试，没有测试程序，目前绑定导入表基本已经废弃
 
-	injectByImportTable();  //2024/6/10 14:40测试成功
+	//injectByImportTable();  //2024/6/10 14:40测试成功
+	
 	return 0;
 }

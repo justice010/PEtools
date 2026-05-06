@@ -3,13 +3,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define FILEPATH_IN "E:\\逆向\\fg.exe"
+#define FILEPATH_IN "E:\\逆向\\geek1.exe"
 #define FILEPATH_IN_DLL "E:\\逆向\\Mydll.dll"
-#define FILEPATH_OUT "E:\\逆向\\fg_new.exe"
+#define FILEPATH_OUT "E:\\逆向\\geek1_new1.exe"
 #define FILEPATH_OUT_DLL "E:\\逆向\\Mydll_new.dll"
 #define FILEPATH "E:\\逆向\\injectDll.dll"
 #define SHELLCODELEN 0x12
-#define MESSAGEBOXADDR 0x76A4A740
+#define MESSAGEBOXADDR 0x754AA740
 
 //全局变量
 BYTE shellcode[] =
@@ -732,7 +732,7 @@ void TestAddCodeInNewSec()
 	pNewSectionHeader->VirtualAddress = pLastSectionHeader->VirtualAddress + (DWORD)Align(max(pLastSectionHeader->Misc.VirtualSize, pLastSectionHeader->SizeOfRawData), pOptionalHeader->SectionAlignment);
 	pNewSectionHeader->SizeOfRawData = 0x1000;
 	pNewSectionHeader->PointerToRawData = pLastSectionHeader->PointerToRawData + pLastSectionHeader->SizeOfRawData;
-	/*
+	
 	//在新增节中插入shellcode并修正E8 E9
 	codeBegin = (PBYTE)((DWORD)pNewImageBuffer + pNewSectionHeader->VirtualAddress);
 	memset(codeBegin, 0, 0x1000);
@@ -744,7 +744,7 @@ void TestAddCodeInNewSec()
 	DWORD jmpAddr = (pOptionalHeader->ImageBase + pOptionalHeader->AddressOfEntryPoint) - (pOptionalHeader->ImageBase + (DWORD)(codeBegin + SHELLCODELEN) - (DWORD)(pNewImageBuffer));
 	*((PDWORD)(codeBegin + 0xE)) = jmpAddr;
 
-	pOptionalHeader->AddressOfEntryPoint = (DWORD)codeBegin - (DWORD)pNewImageBuffer;*/
+	pOptionalHeader->AddressOfEntryPoint = (DWORD)codeBegin - (DWORD)pNewImageBuffer;
 	
 	size = CopyImageBufferToNewBuffer(pNewImageBuffer, &pNewBuffer);
 	if (size == 0 || pNewBuffer == NULL)
@@ -871,7 +871,7 @@ void TestMergeSec()
 		return ;
 	}
 
-	//FileBuffer--->
+	//FileBuffer--->ImageBuffer
 	DWORD fileBufferSize = CopyFileBufferToImageBuffer(pFileBuffer, &pImageBuffer);
 	if (fileBufferSize == 0 || pImageBuffer == nullptr)
 	{
@@ -1725,6 +1725,8 @@ void injectByImportTable()
 		printf("读取文件到缓冲内存空间失败！\n");
 		return ;
 	}
+
+	printf("%x", RvaToFileOffset(pFileBuffer, 0x22e814));
 
 	//解析PE头
 	PIMAGE_DOS_HEADER pDosHeader = (PIMAGE_DOS_HEADER)pFileBuffer;
