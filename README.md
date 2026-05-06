@@ -27,7 +27,8 @@
 
 ## 📸 运行预览
 
-> ![alt text](image.png)
+> <img width="1467" height="748" alt="image" src="https://github.com/user-attachments/assets/95bfe452-a470-4aae-914e-36f65b27ecff" />
+
 
 ---
 
