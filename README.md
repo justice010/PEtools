@@ -1,36 +1,34 @@
-# PE 解释器控制台程序
+# PEtools - 轻量级 PE 文件解析器
 
-这是一个用C/C++编写的PE（可移植可执行文件）解释器控制台程序。该程序包括解析和解释PE文件的功能。
+![Language](https://img.shields.io/badge/Language-C%2B%2B-blue)
+![Platform](https://img.shields.io/badge/Platform-Win32-green)
+![License](https://img.shields.io/badge/License-MIT-orange)
 
-## 文件说明
+一个基于 C++17 开发的 Windows 可执行文件 (PE) 解析工具。专为逆向工程学习者设计，代码结构清晰，注释详尽。
 
-- **Global.cpp**：包含项目中使用的全局定义和函数。
-- **Global.h**：与`Global.cpp`相关的头文件。声明了全局变量和函数原型。
-- **PEtool.cpp**：包含PE解释器的主要功能。该文件包括解析和解释PE文件的逻辑。
+## ✨ 主要功能
 
-## 前置要求
+- [x] **Header 解析**：解析 DOS 头部、NT 头部（FileHeader & OptionalHeader）。
+- [x] **节表遍历**：详细列出所有 Section 的名称、虚拟大小、原始数据大小及属性。
+- [x] **目录预览**：支持 Data Directory 基础解析（如导入表预览）。
+- [x] **地址转换**：内置 RVA (Relative Virtual Address) 与 FOA (File Offset Address) 转换逻辑。
 
-- Visual Studio 2022
-- C++17 或更高版本
+## 🛠️ 编译与运行
 
-## 构建项目
+- **环境**: Visual Studio 2022 (v143)
+- **SDK**: Windows 10 / 11 SDK
+- **注意**: **必须在顶部工具栏将构建配置切换为 x86 (Win32)**，否则由于 PE32 结构体定义差异会导致编译报错。
 
-1. **克隆仓库**：
-   ```sh
-   git clone https://github.com/justice010/PEtools.git
-   cd PEtools
-2. **打开项目**：
-- 使用Visual Studio 2022打开解决方案文件（`.sln`）。
-3. **选择构建配置**：
-- 在Visual Studio中，选择`x86`构建配置。如果没有`x86`配置，请在配置管理器中创建一个新的`x86`配置。
-4. **生成解决方案**：
-- 在菜单栏中，选择`生成` > `生成解决方案`或者按`F7`。确保所有项目都成功构建。
+## 🚀 快速开始
 
-## 运行项目
-- 在Visual Studio中，按`F5`键运行项目。程序将启动并对用户预定义的PE文件路径进行解析和解释。
+1. 克隆项目：`git clone https://github.com/justice010/PEtools.git`
+2. 使用 VS2022 打开 `PEtools.sln`。
+3. 确保配置为 `Debug | x86`，按 `F5` 编译运行。
 
-## 贡献
-欢迎提交issue和pull request以改进此项目。
+## 📸 运行预览
 
-## 许可证
-此项目使用[MIT 许可证](https://opensource.org/licenses/MIT)。
+> ![alt text](image.png)
+
+---
+
+_本项目仅供技术交流与学习使用。_
