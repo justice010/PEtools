@@ -4,7 +4,7 @@
 ![Platform](https://img.shields.io/badge/Platform-Win32-green)
 ![License](https://img.shields.io/badge/License-MIT-orange)
 
-一个基于 C++17 开发的 Windows 可执行文件 (PE) 解析工具。专为逆向工程学习者设计，代码结构清晰，注释详尽。
+一个基于 纯C语言 开发的 Windows 可执行文件 (PE) 解析工具。专为逆向工程学习者设计，代码结构清晰，注释详尽。
 
 ## ✨ 主要功能
 
