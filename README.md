@@ -1,6 +1,6 @@
 # PEtools - 轻量级 PE 文件解析器
 
-![Language](https://img.shields.io/badge/Language-C%2B%2B-blue)
+![Language](https://img.shields.io/badge/Language-C-blue)
 ![Platform](https://img.shields.io/badge/Platform-Win32-green)
 ![License](https://img.shields.io/badge/License-MIT-orange)
 
